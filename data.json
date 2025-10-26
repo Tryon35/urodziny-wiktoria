@@ -1,0 +1,43 @@
+{
+  "history": [
+    {
+      "date": "2021-05-14",
+      "title": "Pierwsze spotkanie",
+      "description": "To był dzień, w którym nasze drogi się po raz pierwszy przecięły i wszystko zaczęło się zmieniać."
+    },
+    {
+      "date": "2021-06-02",
+      "title": "Pierwszy wspólny spacer",
+      "description": "Spacerowaliśmy godzinami, rozmawiając o wszystkim i o niczym."
+    },
+    {
+      "date": "2021-12-24",
+      "title": "Święta razem",
+      "description": "Nasze pierwsze wspólne święta – pełne ciepła, uśmiechu i rodzinnej atmosfery."
+    },
+    {
+      "date": "2022-07-15",
+      "title": "Pierwszy wyjazd",
+      "description": "Podróż, która jeszcze bardziej nas do siebie zbliżyła."
+    },
+    {
+      "date": "2023-02-14",
+      "title": "Walentynki",
+      "description": "Romantyczny wieczór, który zapamiętamy na zawsze."
+    }
+  ],
+  "gallery": [
+    {
+      "src": "images/photo1.jpg",
+      "caption": "Nasze pierwsze selfie razem."
+    },
+    {
+      "src": "images/photo2.jpg",
+      "caption": "Wspólny wyjazd nad morze."
+    },
+    {
+      "src": "images/photo3.jpg",
+      "caption": "Niezapomniany wieczór w mieście."
+    }
+  ]
+}

@@ -1,0 +1,325 @@
+/* styles.css — wersja rozszerzona
+   Celem jest stworzenie bajecznego wyglądu: pastelowe gradienty, miękkie cienie,
+   elegancka typografia, subtelne animacje, piękne przyciski i galeria.
+   Kolory dominujące: odcienie różu, fioletu i złota.
+*/
+
+/* ---------------------------------------------
+   Reset / base
+   --------------------------------------------- */
+   html {
+  scroll-behavior: smooth;
+}
+:root{
+  --bg: #fae2ed;
+  --card-bg: #ffffff;
+  --muted: #7c7c8c;
+  --text: #2c2232;
+  --accent: #ff7aa2; /* różowy akcent */
+  --accent-2: #f7a6d0; /* jasny róż/fiolet */
+  --gold: #f5c35d;
+  --shadow-soft: 0 10px 40px rgba(0,0,0,0.08);
+  --shadow-strong: 0 20px 60px rgba(0,0,0,0.15);
+  --radius: 20px;
+  --max-width: 1100px;
+  --container-padding: 24px;
+  --focus-ring: 0 0 0 4px rgba(255,122,162,0.35);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;}
+body{
+  font-family:"Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto;
+  background:var(--bg-gradient);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;height:auto;border-radius:12px}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:0 var(--container-padding)}
+
+/* Typography */
+:root{
+  --fs-hero: clamp(32px, 6vw, 56px);
+  --fs-h1: clamp(24px, 4vw, 36px);
+  --fs-h2: clamp(20px, 3vw, 28px);
+  --fs-base: 17px;
+}
+body{font-size:var(--fs-base);line-height:1.6}
+h1,h2,h3{font-weight:700;line-height:1.2;color:#1c1322}
+h1{font-size:var(--fs-hero)}
+h2{font-size:var(--fs-h2);margin-bottom:12px}
+p{color:var(--muted)}
+
+/* Hero */
+.hero{padding:80px 0;text-align:center}
+.hero h1 span{background:linear-gradient(90deg,var(--accent),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{max-width:600px;margin:12px auto;font-size:18px}
+
+/* Countdown */
+.countdown{display:flex;justify-content:center;gap:20px;margin-top:20px}
+.count-segment{background:linear-gradient(135deg,#fff 0%,#fff2f6 100%);padding:20px 14px;border-radius:var(--radius);box-shadow:var(--shadow-soft);min-width:90px}
+.count-value{font-size:32px;font-weight:700;color:var(--accent)}
+.count-label{font-size:14px;color:var(--muted)}
+
+/* Ukryte sekcje (podstrony) */
+.popup-links {
+  display: flex;              /* flexbox */
+  justify-content: center;    /* wyśrodkowanie poziome */
+  align-items: center;        /* wyśrodkowanie pionowe w kontenerze, jeśli potrzeba */
+  gap: 20px;                  /* odstęp między przyciskami */
+  width: 100%;                /* zawsze pełna szerokość rodzica */
+  margin: 30px 0;             /* odstęp od góry i dołu */
+}
+
+
+.hidden-section {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  width: 80%;
+  max-width: 500px;
+  z-index: 1000;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+  pointer-events: none; /* żeby nie klikać, gdy niewidoczne */
+}
+
+.hidden-section.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  pointer-events: auto; /* włączamy klikalność */
+}
+
+
+/* Tło za modalem (ciemne półprzezroczyste) */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+/* Styl przycisku zamykania */
+.hidden-section button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #ff7aa2, #f5c35d);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.hidden-section button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(255,122,162,0.3);
+}
+
+
+
+
+/* Navigation */
+nav ul{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+nav a{padding:10px 18px;border-radius:30px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;font-weight:600;transition:all .3s ease;box-shadow:0 6px 20px rgba(255,122,162,0.3)}
+nav a:hover{transform:translateY(-4px) scale(1.03);box-shadow:var(--shadow-strong)}
+
+/* Timeline */
+.timeline{margin-top:28px;position:relative;display:flex;flex-direction:column;gap:40px}
+.timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--accent),var(--gold));border-radius:4px;transform:translateX(-50%)}
+.timeline-item{position:relative;width:calc(50% - 40px);padding:20px;border-radius:var(--radius);background:linear-gradient(135deg,#fff,#fff6fa);box-shadow:var(--shadow-soft)}
+.timeline-item:nth-child(odd){align-self:flex-start;margin-left:0}
+.timeline-item:nth-child(even){align-self:flex-end;margin-right:0}
+.timeline-item time{display:block;margin-bottom:8px;font-weight:700;color:var(--gold)}
+
+/* Gallery */
+.gallery-grid{pointer-events: none;margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.gallery-grid figure{overflow:hidden;position:relative;border-radius:var(--radius);box-shadow:var(--shadow-soft);transition:transform .4s ease, box-shadow .4s ease}
+.gallery-grid figure:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-strong)}
+.gallery-grid figcaption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(0,0,0,0.6),rgba(0,0,0,0));color:#fff;padding:12px;font-size:15px}
+
+/* Wishes */
+.wish-card{margin-top:20px;padding:28px;border-radius:var(--radius);background:linear-gradient(135deg,#fff,#fff6f8);box-shadow:var(--shadow-soft)}
+.wish-card h3{color:var(--accent)}
+
+/* Footer */
+footer{padding:40px 0;text-align:center;background:linear-gradient(180deg,#fff6f8,#fff)}
+footer p{font-size:14px;color:var(--muted)}
+footer small{color:var(--muted)}
+
+/* Buttons */
+.button{display:inline-block;padding:12px 20px;border-radius:30px;background:linear-gradient(90deg,var(--accent),var(--gold));color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:0.02em;box-shadow:0 6px 20px rgba(0,0,0,0.15);transition:all .3s}
+.button:hover{transform:translateY(-3px);box-shadow:var(--shadow-strong)}
+
+/* Animations */
+@keyframes fadeUp{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+section{animation:fadeUp .8s ease forwards;opacity:0}
+
+/* Responsive */
+@media(max-width:768px){
+  .timeline::before{left:20px}
+  .timeline-item{width:100%;margin-left:40px}
+}
+
+/* Accessibility */
+a:focus,button:focus{outline:none;box-shadow:var(--focus-ring)}
+
+/* ------------------------------
+   KONFETTI ANIMACJA
+--------------------------------*/
+.confetti {
+  position: fixed;
+  top: -10px;
+  z-index: 9999;
+  opacity: 0.9;
+  pointer-events: none;
+  user-select: none;
+  transform: translateY(0);
+  animation: fall 6s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ------------------------------
+   LINK DO KOLEJNEJ STRONY
+--------------------------------*/
+.next-link-container {
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px;
+}
+
+.next-link {
+  font-size: 1.2rem;
+  padding: 14px 28px;
+  background: linear-gradient(90deg, #ff8efb, #ffc7f9);
+  color: #fff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 0, 100, 0.3);
+}
+
+.next-link:hover:not(.disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 0, 150, 0.5);
+}
+
+.next-link.disabled {
+  background: #d3d3d3;
+  color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.7;
+}
+/* ---------------------------------------------
+   Cute Popup (słodki modal)
+--------------------------------------------- */
+.cute-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 200, 230, 0.35);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.cute-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cute-popup-inner {
+  background: linear-gradient(135deg, #ffe5f0, #fff0f7);
+  border: 2px solid #ff9ac9;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(255, 120, 170, 0.3);
+  text-align: center;
+  max-width: 300px;
+  width: 80%;
+  animation: popupBounce 0.4s ease;
+}
+
+.cute-popup-inner p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #d63384;
+  margin: 10px 0 20px;
+  font-size: 1.1rem;
+}
+
+.cute-popup-inner .popup-emoji {
+  font-size: 2.5rem;
+  animation: floatEmoji 1.5s ease-in-out infinite;
+}
+
+.popup-close {
+  background: #ff80b5;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  box-shadow: 0 5px 10px rgba(255, 105, 180, 0.2);
+}
+
+.popup-close:hover {
+  background: #ff5ca5;
+}
+
+/* animacje */
+@keyframes popupBounce {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes floatEmoji {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+audio {
+  display: none;
+}
+
+#image-preview, 
+.image-preview, 
+.preview-label, 
+[title="Podgląd zdjęcia"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+#preview-label { display: none !important; }
+
+/* --------------------------------------------- NOWA SEKCJA: Dlaczego Cię kocham 💕 --------------------------------------------- */ .love-section{ margin-top:40px; padding:40px 20px; background: linear-gradient(135deg,#ffe6f8,#fff0fb); border-radius: var(--radius); box-shadow: var(--shadow-soft); text-align: center; } .love-section h2{ font-size: var(--fs-h2); color: #ff4da6; margin-bottom:16px; } .love-section p{ font-size: 1.1rem; color: #6b1c3a; line-height:1.6; max-width:700px; margin:12px auto; } .love-list{ display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-top:24px; } .love-list li{ background: linear-gradient(135deg,#ffb6d9,#ffc7f5); padding:12px 20px; border-radius:20px; box-shadow: var(--shadow-soft); font-weight:600; color:#fff; list-style:none; transition: transform 0.3s, box-shadow 0.3s; } .love-list li:hover{ transform: translateY(-4px); box-shadow: var(--shadow-strong); } @media(max-width:768px){ .love-list{ flex-direction:column; gap:12px; } }

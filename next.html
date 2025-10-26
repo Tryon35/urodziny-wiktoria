@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Niespodzianka 🎁</title>
+<style>
+/* ------------------------------
+   Styl — romantyczna niespodzianka
+------------------------------ */
+:root{
+  --bg-gradient: linear-gradient(135deg,#ffe6f8 0%,#fff5ff 50%,#ffeaf5 100%);
+  --accent: #ff7aa2;
+  --gold: #f5c35d;
+  --text: #2c2232;
+  --shadow-soft: 0 10px 40px rgba(0,0,0,0.08);
+  --radius: 20px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:"Poppins",sans-serif;
+  background:var(--bg-gradient);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* animowane konfetti */
+.confetti {
+  position: fixed;
+  top: -10px;
+  z-index: 999;
+  pointer-events: none;
+  animation: fall linear infinite;
+  opacity: 0.9;
+}
+@keyframes fall {
+  0% { transform: translateY(-10px) rotate(0deg); opacity:1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity:0; }
+}
+
+/* główny kontener */
+.surprise-box{
+  background:linear-gradient(135deg,#fff,#fff6fb);
+  box-shadow:var(--shadow-soft);
+  border-radius:var(--radius);
+  padding:40px 30px;
+  max-width:600px;
+  text-align:center;
+  animation:fadeIn 1.2s ease forwards;
+  opacity:0;
+  position: relative;
+}
+@keyframes fadeIn{to{opacity:1;transform:translateY(0);}from{opacity:0;transform:translateY(30px);}}
+
+/* nagłówek */
+h1{
+  font-size:2.4rem;
+  background:linear-gradient(90deg,var(--accent),var(--gold));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:20px;
+}
+
+/* efekt pisania */
+.message{
+  font-size:1.1rem;
+  line-height:1.7;
+  color:#5a2444;
+  margin:20px auto;
+  white-space:pre-wrap;
+  border-right:3px solid var(--accent);
+  width:0;
+  overflow:hidden;
+  animation: typing 6s steps(80,end) 0.5s forwards, blink 0.8s step-end infinite;
+}
+@keyframes typing{from{width:0;}to{width:100%;}}
+@keyframes blink{50%{border-color:transparent;}}
+
+/* przycisk powrotu */
+.button{
+  display:inline-block;
+  margin-top:30px;
+  padding:14px 28px;
+  background:linear-gradient(90deg,var(--accent),var(--gold));
+  color:#fff;
+  border:none;
+  border-radius:30px;
+  font-size:1rem;
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:0 6px 20px rgba(255,122,162,0.3);
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+.button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(255,122,162,0.4);
+}
+
+/* dekoracje */
+.decor-img {
+  position: absolute;
+  width: 120px;
+  opacity: 0.85;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+.decor-img:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+.decor-left {
+  top: -30px;
+  left: -80px;
+  transform: rotate(-12deg);
+}
+.decor-right {
+  bottom: -40px;
+  right: -70px;
+  transform: rotate(10deg);
+}
+
+/* ukrycie playera */
+audio {
+  display:none;
+}
+</style>
+</head>
+<body>
+
+<!-- konfetti -->
+<script>
+const colors = ['#ff7aa2','#f5c35d','#f7a6d0','#ffb6d9','#ffd6a5'];
+for(let i=0;i<50;i++){
+  const conf = document.createElement('div');
+  conf.classList.add('confetti');
+  conf.style.width = Math.random()*8+6+'px';
+  conf.style.height = conf.style.width;
+  conf.style.left = Math.random()*100+'%';
+  conf.style.background = colors[Math.floor(Math.random()*colors.length)];
+  conf.style.animationDuration = (Math.random()*3+3)+'s';
+  conf.style.animationDelay = Math.random()*3+'s';
+  document.body.appendChild(conf);
+}
+</script>
+
+<div class="surprise-box">
+  <img src="8174f5d6d3a8562f84d46b796309679c.JPEG" alt="ozdoba" class="decor-img decor-left">
+  <img src="8174f5d6d3a8562f84d46b796309679c.png" alt="ozdoba" class="decor-img decor-right">
+
+  <h1>🎉 Niespodzianka dla Ciebie 💖</h1>
+  <p class="message">
+Kochana Wiktorio,
+
+Chciałem, żeby ta chwila była tylko dla Ciebie.  
+Nie ma nic piękniejszego niż móc widzieć Twój uśmiech,  
+więc stworzyłem to małe, pastelowe miejsce — tylko nasze.  
+
+Dziękuję, że jesteś. 🌷  
+Z każdym dniem sprawiasz, że świat staje się cieplejszy.
+
+Z miłością,  
+Twój ✨
+  </p>
+
+  <button class="button" onclick="window.location.href='index.html'">⬅ Powrót</button>
+</div>
+
+<!-- 🎵 muzyka -->
+<audio id="bg-music" autoplay loop>
+  <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Spróbuj odtworzyć muzykę automatycznie
+window.addEventListener("load", () => {
+  const audio = document.getElementById("bg-music");
+  const playPromise = audio.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // jeśli przeglądarka zablokuje autoplay — odtwórz po pierwszym kliknięciu
+      document.body.addEventListener("click", () => {
+        audio.play();
+      }, { once: true });
+    });
+  }
+});
+</script>
+
+</body>
+</html>

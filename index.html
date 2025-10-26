@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Urodzinowa strona dla Wiktorii — odliczanie, wspomnienia i galeria.">
+  <title>Urodziny Wiktorii 🎂</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <h1>Urodziny <span>Wiktorii</span> 🎉</h1>
+        <p>Odliczamy dni do Twojego wyjątkowego dnia — 26 października! 💖</p>
+      </div>
+
+      <!-- COUNTDOWN -->
+      <div class="countdown" aria-label="Odliczanie do urodzin Wiktorii">
+        <div class="count-segment">
+          <div class="count-value" id="days">0</div>
+          <div class="count-label">Dni</div>
+        </div>
+        <div class="count-segment">
+          <div class="count-value" id="hours">0</div>
+          <div class="count-label">Godziny</div>
+        </div>
+        <div class="count-segment">
+          <div class="count-value" id="minutes">0</div>
+          <div class="count-label">Minuty</div>
+        </div>
+        <div class="count-segment">
+          <div class="count-value" id="seconds">0</div>
+          <div class="count-label">Sekundy</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAV -->
+    <nav>
+      <ul>
+        <li><a href="#historia">Nasza historia</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#zyczenia">Życzenia</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Przycisk otwierający podstronę -->
+<div class="center-wrapper">
+  <div class="popup-links">
+    <button class="button" onclick="openSection('letterSection')">📜 Mój list</button>
+    <button class="button" onclick="openSection('dreamsSection')">🌈 Nasze marzenia</button>
+  </div>
+</div>
+
+<!-- Ukryte sekcje (podstrony) -->
+<div id="letterSection" class="hidden-section">
+  <h2>List 💌</h2>
+  <p> Chciałbym Ci dzisiaj napisać kilka słów, które, mam nadzieję, będą potrafiły choć w małym stopniu oddać to, jak wyjątkową osobą jesteś. Często w codziennym biegu zapominamy mówić sobie nawzajem, jak bardzo doceniamy drugą osobę, a ja nie chcę, żeby ten moment przeminął bez słów, które naprawdę mają znaczenie.
+Jest w Tobie coś niezwykłego — sposób, w jaki patrzysz na świat, jak potrafisz dostrzegać piękno w drobnych rzeczach i jak Twoja obecność potrafi rozjaśnić każdy dzień. 
+Niech każdy dzień przynosi Ci powody do uśmiechu, nawet w chwilach trudniejszych. Pamiętaj, że warto celebrować małe sukcesy i cieszyć się każdym momentem, bo życie składa się z tych właśnie drobnych chwil. Niech Twoja droga będzie pełna pięknych przygód, inspirujących ludzi i niezapomnianych doświadczeń.
+Na koniec chciałbym Ci powiedzieć coś, co często pozostaje niewypowiedziane, a jest prawdziwe: jesteś kimś wyjątkowym. I nawet jeśli czasem świat wydaje się szary, pamiętaj, że Twoje światło jest ważne i potrzebne. Nigdy o tym nie zapominaj.</p>
+  <button onclick="closeSection('letterSection')">Zamknij</button>
+</div>
+
+<div id="dreamsSection" class="hidden-section">
+  <h2>Nasze marzenia 🌟</h2>
+  <p>•Zamieszkać w przytulnym domu pełnym światła, z ogrodem, w którym zawsze będzie można poczuć spokój i radość.
+<br>
+    •Mieć pięknego syna lub córkę, z którymi będę mogła dzielić każdą radość i przygodę życia.
+<br>
+•Dużo podróżować i poznawać nowe miejsca, kultury i smaki świata. Chciałabym zobaczyć m.in.:
+<br>
+-Włochy – uliczki Florencji i zachody słońca nad Toskanią
+<br>
+-Japonia – kwitnące wiśnie w Kioto i tętniące życiem Tokio
+<br>
+-Nowa Zelandia – dzikie krajobrazy i niesamowite widoki natury
+<br>
+-Islandia – gejzery, lodowce i zorza polarna
+<br>
+-Maroko – kolorowe medyny i pustynne przygody
+<br>
+•Rozwijać swoje pasje i robić to, co naprawdę sprawia mi radość każdego dnia.
+<br>
+•Spotykać inspirujących ludzi, którzy uczą, motywują i dzielą się swoją energią.
+<br>
+•Cieszyć się każdą drobną chwilą, bo życie składa się z małych, pięknych momentów.</p>
+  <button onclick="closeSection('dreamsSection')">Zamknij</button>
+</div>
+
+  <main>
+
+    <!-- HISTORIA -->
+    <section id="historia" class="container">
+      <h2>Nasza historia 💕</h2>
+      <p>Oto kilka naszych wspomnień zapisanych w czasie:</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <time>2022-03-26</time>
+          <h3>Pierwsze spotkanie</h3>
+          <p>To był dzień, w którym nasze drogi po raz pierwszy się przecięły.</p>
+        </div>
+
+        <div class="timeline-item">
+          <time>2022-11-02</time>
+          <h3>Rozpoczęcie naszego związku</h3>
+          <p>To był najdziwniejszy ale i najlepszy okres życia, nie miało prawa a sie wydarzyło.</p>
+        </div>
+
+        <div class="timeline-item">
+          <time>2024-2025</time>
+          <h3>Sylwester razem</h3>
+          <p>Nasz pierwszy wspólny sylwester – pełne ciepła i uśmiechu.</p>
+        </div>
+
+        <div class="timeline-item">
+          <time>2024-10-4</time>
+          <h3>Pierwszy wyjazd</h3>
+          <p>Podróż, która jeszcze bardziej nas do siebie zbliżyła.</p>
+        </div>
+
+        <div class="timeline-item">
+          <time>2025-10-25</time>
+          <h3>Dzisiejszy wyjazd</h3>
+          <p>Twoje urodziny połączone z wyjazdem, coś niesamowitego.</p>
+        </div>
+      </div>
+    </section>
+
+    <br>
+    
+ 
+    <section id="dlaczego" class="container love-reasons">
+      <h2>Dlaczego Cię kocham 💕</h2>
+      <ul class="love-list">
+        <li>💖 Bo potrafisz sprawić, że nawet zwykły dzień staje się wyjątkowy.</li>
+        <li>🌸 Bo Twój uśmiech potrafi rozjaśnić wszystko wokół.</li>
+        <li>💫 Bo jesteś najcieplejszą osobą, jaką znam.</li>
+        <li>🎀 Bo kochasz całym sercem — prawdziwie i pięknie.</li>
+        <li>🌷 Bo razem z Tobą życie smakuje lepiej.</li>
+        <li>💞 Bo potrafisz słuchać i rozumieć bez słów.</li>
+        <li>🌹 Bo jesteś moim domem, spokojem i szczęściem.</li>
+        <li>✨ Bo każdy moment z Tobą ma sens.</li>
+        <li>🎶 Bo dzięki Tobie wiem, czym jest miłość.</li>
+        <li>❤️ Bo po prostu jesteś TY — moja Wiktoria.</li>
+      </ul>
+    </section>
+
+
+    <section id="galeria" class="container">
+      <h2>Nasza galeria 📸</h2>
+      <p>Wspomnienia, które warto zobaczyć:</p>
+
+      <div class="gallery-grid">
+        <figure>
+          <img src="Nowy projekt.png" alt="Nasze pierwsze selfie razem">
+          <figcaption>Nasze pierwsze selfie razem</figcaption>
+        </figure>
+        <figure>
+          <img src="Nowy projekt-3.png" alt="Wspólny wyjazd nad morze">
+          <figcaption>Pierwsze wspólne wesele</figcaption>
+        </figure>
+        <figure>
+          <img src="Nowy projekt-5.png" alt="Niezapomniany wieczór w mieście">
+          <figcaption>Wyjazd do Opola</figcaption>
+        </figure>
+      </div>
+    </section>
+
+<br>
+
+    <!-- ŻYCZENIA -->
+    <section id="zyczenia" class="container">
+      <h2>Życzenia 🎁</h2>
+      <div class="wish-card">
+        <h3>Sto lat, Wiktorio!</h3>
+        <p>
+          Kochana Wiktorio, w dniu Twoich 19. urodzin życzę Ci, aby każdy dzień był pełen uśmiechu, miłości i spełnionych marzeń.
+          Jesteś dla mnie najpiękniejszym prezentem od życia – dziękuję, że jesteś.
+          Niech Twoje serce zawsze bije w rytmie szczęścia, a nasze wspólne chwile stają się najcenniejszymi wspomnieniami.
+          Kocham Cię ❤️
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <br>
+
+    <!-- Skrypt JS -->
+  <script src="scripts.js"></script>
+
+  <footer>
+    <div class="container">
+      <p>Dla najcudowniejszej dziewczyny na świecie 💖</p>
+      <small>Twój Bartuś</small>
+    </div>
+  </footer>
+
+
+</body>
+</html>
+<!-- pomocniczy: localStorage.removeItem('nextUnlocked') -->
